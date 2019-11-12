@@ -65,4 +65,4 @@ const FriendsList = (props) => {
 
 export default connect(state => {
     return state;
-})(SmurfList);
+})(FriendsList);
