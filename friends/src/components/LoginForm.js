@@ -24,7 +24,7 @@ export class LoginForm extends Component {
         return (
             <div>
                 <Grid container >
-                    <Paper style={{ width: '100%', }}>
+                    <Paper style={{ width: '100%', margin: 20 }}>
                         <form onSubmit={this.onSubmit}>
                             <Typography variant="h5" >
                                 Login
@@ -50,7 +50,7 @@ export class LoginForm extends Component {
                                 onChange={this.handleChanges}
                                 required
                             />
-                            <Button type="submit" >Submit</Button>
+                            <Button type="submit" style={{background: 'dodgerblue'}} >Submit</Button>
                         </form>
                     </Paper>
                 </Grid>

@@ -1,14 +1,26 @@
-import React, { Component } from 'react';
+import React from "react";
+import { Route, Redirect } from "react-router-dom";
 
-
-export class PrivateRoute extends Component {
-    render() {
-        return (
-            <div>
-                
-            </div>
+const isAuthenticated = () => {
+  return sessionStorage.getItem("token") ? true : false;
+};
+export default function PrivateRoute({ children, ...rest }) {
+  console.log("...rest", rest);
+  return (
+    <Route
+      {...rest}
+      render={({ location }) =>
+        isAuthenticated() ? (
+          children
+        ) : (
+          <Redirect
+            to={{
+              pathname: "/login",
+              state: { from: location }
+            }}
+          />
         )
-    }
+      }
+    />
+  );
 }
-
-export default PrivateRoute
