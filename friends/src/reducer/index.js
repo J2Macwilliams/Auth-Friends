@@ -1,3 +1,5 @@
+import {LOADING , SUCCESS , FAILURE}
+
 const initialState = [{
     name: '',
     age: '',
