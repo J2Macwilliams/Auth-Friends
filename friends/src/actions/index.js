@@ -1,3 +1,5 @@
+import axios from "axios"
+
 export const LOADING = "LOADING"
 export const SUCCESS = "SUCCESS"
 export const FAILURE = "FAILURE"
@@ -11,7 +13,6 @@ export function friendSignUpRequest(friendData) {
     return dispatch => {
         return axios.post('', friendData);
     }
-
 };
 
 //Get request ('R'ead in Crud)
