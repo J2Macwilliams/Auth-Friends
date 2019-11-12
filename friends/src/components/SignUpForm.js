@@ -26,7 +26,7 @@ export class SignUpForm extends Component {
         return (
             <div>
                 <Grid container >
-                    <Paper style={{ width: '100%', margin: 20 }}>
+                    <Paper style={{ width: '100%', margin: 20, background: 'orange' }}>
                         <form onSubmit={this.onSubmit}>
                             <Typography variant="h5" >
                                 Friend Sign Up Form

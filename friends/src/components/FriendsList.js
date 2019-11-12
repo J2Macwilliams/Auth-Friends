@@ -38,6 +38,7 @@ const FriendsList = (props) => {
             
 
             <Button className={classes.button} onClick={() => props.dispatch(getFriends())}>Peeps</Button>
+            
             {props.isLoading && <div>spinner</div>}
             {props.error && <div>{props.error.message}</div>}
             <Grid container spacing={1}>
