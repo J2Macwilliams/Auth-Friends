@@ -1,11 +1,13 @@
 import React from 'react'
 
-import LoginForm from './SignUpForm';
+import SignUpForm from './SignUpForm';
+import LoginForm from './LoginForm';
 
 function SplashPage() {
     return (
         <div>
             <LoginForm />
+            <SignUpForm />
         </div>
     )
 }
