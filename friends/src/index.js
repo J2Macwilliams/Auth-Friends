@@ -5,12 +5,12 @@ import { Provider } from 'react-redux';
 import { applyMiddleware, createStore } from 'redux';
 import thunk from "redux-thunk";
 import { composeWithDevTools } from "redux-devtools-extension";
-import { reducer } from './reducer/index';
+import { rootReducer } from './reducer/index';
 
 import './index.css';
 import App from './App';
 
-const store = createStore(reducer,
+const store = createStore(rootReducer,
     composeWithDevTools(applyMiddleware(thunk))
 )
 

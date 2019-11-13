@@ -7,7 +7,7 @@ const intitialState = {
     isAuthenticated: localStorage.getItem('id_token') ? true : false
 }
 
-export const authReducer = (state = intitialState, action) => {
+const authReducer = (state = intitialState, action) => {
     switch (action.type) {
         case LOGIN_REQUEST:
             return Object.assign({}, state, {
@@ -32,3 +32,5 @@ export const authReducer = (state = intitialState, action) => {
             return state
     }
 }
+
+export default authReducer

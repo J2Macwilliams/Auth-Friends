@@ -1,35 +1,10 @@
-import {LOADING , SUCCESS , FAILURE} from '../actions/index.js';
+import { combineReducers } from 'redux';
 
-const initialState = {
-    friends: [],
-    error: null,
-    isLoading: false,
-}
+import authReducer from './authReducer';
+import getFriendsReducer from './getFriendsReducer';
 
-export const reducer = (state = initialState, action) => {
-    console.log("reducer", action);
-    switch (action.type) {
-        case LOADING:
-            return {
-                ...state,
-                error: null,
-                isLoading: true
-            }
-        case SUCCESS:
-            return {
-                ...state,
-                friends: action.payload,
-                isLoading: false
-            }
-        case FAILURE:
-            return {
-                ...state,
-                friends: [],
-                error: action.payload,
-                isLoading: false
-            }
-        
-        default:
-            return state;
-    }
-}
+
+export const rootReducer = combineReducers({
+    authReducer,
+    getFriendsReducer
+})
