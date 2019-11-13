@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import { friendSignUpRequest } from '../actions/index';
+
+
 import { Paper, Grid, TextField, Button, Typography } from '@material-ui/core';
 
 
@@ -81,4 +81,4 @@ export class SignUpForm extends Component {
     }
 }
 
-export default connect((state) => { return {} }, { friendSignUpRequest })(SignUpForm);
+export default SignUpForm;

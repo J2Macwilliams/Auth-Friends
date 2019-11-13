@@ -1,6 +1,6 @@
 import React from "react";
-import { connect } from "react-redux";
-import { getFriends } from "../actions/index";
+
+
 import axios from 'axios';
 
 import { Grid, Card, Typography, makeStyles, Button } from '@material-ui/core';
@@ -48,32 +48,9 @@ const FriendsList = (props) => {
    
     return (
         <>
-           
-            <Button className={classes.button} onClick={() => props.dispatch(getFriends())}>Friends</Button>
-            {props.isLoading && <div>spinner</div>}
-            {props.error && <div>{props.error.message}</div>}
-
-            <Grid container spacing={1}>
-
-                {props.friends.map(blue => (
-                    <Grid item key={blue.name} xs={6} sm={3} md={2}>
-                        <Card  className={classes.card}>
-
-                            <Typography variant="h4">
-                                {blue.name}
-                            </Typography>
-                            <Typography variant="h5">
-                                age: {blue.age}
-                            </Typography>
-                           
-                        </Card>
-                    </Grid>
-                ))}
-            </Grid>
+       
         </>
     )
 }
 
-export default connect(state => {
-    return state;
-})(FriendsList);
+export default FriendsList;
