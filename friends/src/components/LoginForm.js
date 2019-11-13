@@ -50,7 +50,7 @@ export class LoginForm extends Component {
         return (
             <div>
                 <Grid container >
-                    <Paper style={{ width: '100%', margin: 20, boxShadow: '0 0 10px 2px' }}>
+                    <Paper style={{ width: '100%', margin: 100, padding: 10, boxShadow: '0 0 20px 5px orange' }}>
                         <form onSubmit={this.login}>
                             <Typography variant="h5" >
                                 {this.state.loggedIn ? "LOGGED IN!" : "Please login"}
@@ -76,7 +76,7 @@ export class LoginForm extends Component {
                                 onChange={this.handleChange}
                                 required
                             />
-                            <Button type="submit" style={{ background: 'firebrick', color: 'white' }} >Submit</Button>
+                            <Button type="submit" style={{ background: 'orange', color: 'white'  }} >Submit</Button>
                         </form>
                     </Paper>
                 </Grid>

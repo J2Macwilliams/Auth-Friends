@@ -1,10 +1,13 @@
 .App {
   text-align: center;
+  background: black;
+  height: 100vh;
 }
 
 .navbar {
   align-items: center;
-  border-bottom: 1px solid rgb(221, 221, 221);
+  border-bottom: 3px solid rgb(221, 221, 221);
+  background: rgb(54, 53, 53);
   display: flex;
   height: 70px;
   justify-content: space-around;

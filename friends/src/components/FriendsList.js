@@ -54,15 +54,14 @@ class FriendsList extends Component {
     render() {
         return (
             <div>
-                <h1>Friends!</h1>
-                <Grid>
+                <Grid container  >
                     {this.state.friends.map((pals, id) => (
-                        <Grid Item xs={6} sm={3} md={2}>
-                            <Card key={id} >
-                                <Typography variant="h3" >
+                        <Grid Item xs={6} sm={3} md={2} >
+                            <Card key={id} style={{margin: 20, padding: 10, boxShadow: '0 0 10px 2px orange'}} >
+                                <Typography variant="h6" spacing={2}>
                                     {pals.name}
                                 </Typography>
-                                <Typography>
+                                <Typography style={{fontSize: '.7rem'}} >
                                     {pals.email}
                                 </Typography>
                                 <Typography>

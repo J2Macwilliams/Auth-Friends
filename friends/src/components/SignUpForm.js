@@ -26,17 +26,17 @@ export class SignUpForm extends Component {
     };
     onSubmit = e => {
         e.preventDefault();
-        // console.log('Signup', this.state);
+        console.log('Signup', this.state);
         const authAxios = axiosWithAuth();
         authAxios
-            .post('http.//localhost:5000/api/friends', this.state)
+            .post('http://localhost:5000/api/friends', this.state)
     }
 
     render() {
         return (
             <div>
                 <Grid container >
-                    <Paper style={{ width: '100%', margin: 20, boxShadow: '0 0 10px 2px orange' }}>
+                    <Paper style={{ width: '100%', margin: 20, padding: 10, boxShadow: '0 0 20px 5px orange' }}>
                         <form onSubmit={this.onSubmit}>
                             <Typography variant="h5" >
                                 Friend Sign Up Form
