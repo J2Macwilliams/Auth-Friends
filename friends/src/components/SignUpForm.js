@@ -33,6 +33,27 @@ export class SignUpForm extends Component {
                             </Typography>
                             <TextField
                                 id="outlined-basic"
+                                label="email"
+                                name="email"
+                                margin="normal"
+                                variant="outlined"
+                                value={this.state.email}
+                                onChange={this.handleChanges}
+                                required
+                            />
+                             <TextField
+                                type="password"
+                                id="outlined-basic"
+                                label="password"
+                                name="password"
+                                margin="normal"
+                                variant="outlined"
+                                value={this.state.password}
+                                onChange={this.handleChanges}
+                                required
+                            />
+                            <TextField
+                                id="outlined-basic"
                                 label="name"
                                 name="name"
                                 margin="normal"
@@ -49,18 +70,8 @@ export class SignUpForm extends Component {
                                 variant="outlined"
                                 value={this.state.age}
                                 onChange={this.handleChanges}
-                                required
                             />
-                            <TextField
-                                id="outlined-basic"
-                                label="email"
-                                name="email"
-                                margin="normal"
-                                variant="outlined"
-                                value={this.state.email}
-                                onChange={this.handleChanges}
-                                required
-                            />
+                           
                             <Button type="submit" style={{background: "black", color: 'white'}} >Submit</Button>
                         </form>
                     </Paper>

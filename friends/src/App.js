@@ -11,26 +11,9 @@ import FriendsList from './components/FriendsList';
 import PrivateRoute from './components/PrivateRoute';
 import './App.css';
 
-import { makeStyles, AppBar } from '@material-ui/core';
-import { mergeClasses } from '@material-ui/styles';
-
-const useStyles = makeStyles(() => ({
- 
-  navLink: {
-    textDecoration: 'none',
-    background: 'white',
-    margin: 5,
-    padding: '1%',
-    borderRadius: 10
-  },
-  appBarActiveNavButton: {
-    background: 'red',
-
-  }
-}));
 
 function App() {
-  const classes = useStyles();
+  
   return (
     <div className="App">
       
@@ -40,7 +23,7 @@ function App() {
         <PrivateRoute path='/protected' >
           <FriendsList />
         </PrivateRoute>
-        <Route path="/signUp-page" component={SignUp} />
+        {/* <Route path="/signUp-page" component={SignUp} /> */}
         <Route exact path="/" component={Splash} />
         <Route component={Splash} />
       </Switch>

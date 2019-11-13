@@ -24,7 +24,7 @@ export class LoginForm extends Component {
         return (
             <div>
                 <Grid container >
-                    <Paper style={{ width: '100%', margin: 20 }}>
+                    <Paper style={{ width: '100%', margin: 20,boxShadow: '0 0 10px 2px'}}>
                         <form onSubmit={this.onSubmit}>
                             <Typography variant="h5" >
                                 Login
