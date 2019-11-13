@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 
 
 import { Paper, Grid, TextField, Button, Typography } from '@material-ui/core';
+import axios from 'axios';
 
 
 export class SignUpForm extends Component {
@@ -18,8 +19,8 @@ export class SignUpForm extends Component {
     };
     onSubmit = e => {
         e.preventDefault();
-        console.log(this.state);
-        this.props.friendSignUpRequest(this.state);
+        console.log('Signup', this.state);
+        axios.post('http.//localhost:5000/api/friends', this.state)
     }
 
     render() {
@@ -41,7 +42,7 @@ export class SignUpForm extends Component {
                                 onChange={this.handleChanges}
                                 required
                             />
-                             <TextField
+                            {/* <TextField
                                 type="password"
                                 id="outlined-basic"
                                 label="password"
@@ -51,7 +52,7 @@ export class SignUpForm extends Component {
                                 value={this.state.password}
                                 onChange={this.handleChanges}
                                 required
-                            />
+                            /> */}
                             <TextField
                                 id="outlined-basic"
                                 label="name"
@@ -71,8 +72,8 @@ export class SignUpForm extends Component {
                                 value={this.state.age}
                                 onChange={this.handleChanges}
                             />
-                           
-                            <Button type="submit" style={{background: "black", color: 'white'}} >Submit</Button>
+
+                            <Button type="submit" style={{ background: "black", color: 'white' }} >Submit</Button>
                         </form>
                     </Paper>
                 </Grid>
