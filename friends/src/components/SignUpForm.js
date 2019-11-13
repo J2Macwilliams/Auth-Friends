@@ -7,7 +7,7 @@ import { Paper, Grid, TextField, Button, Typography } from '@material-ui/core';
 export class SignUpForm extends Component {
     state = {
         name: '',
-        age: null,
+        age: '',
         email: ''
     }
 

@@ -1,6 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import { getFriends } from "../actions/index";
+import axios from 'axios';
 
 import { Grid, Card, Typography, makeStyles, Button } from '@material-ui/core';
 
@@ -30,32 +31,41 @@ const useStyles = makeStyles(() => ({
     }
 }));
 
+const axiosWithAuth = () => {
+    return axios.create({
+      headers: {
+        authorization: sessionStorage.getItem("token")
+      }
+    });
+  };
+
+
+
 const FriendsList = (props) => {
-    // console.log("FriendsList", props);
+    console.log("Friends", props);
     const classes = useStyles();
+
+   
     return (
         <>
-            
-
-            <Button className={classes.button} onClick={() => props.dispatch(getFriends())}>Peeps</Button>
-            
+           
+            <Button className={classes.button} onClick={() => props.dispatch(getFriends())}>Friends</Button>
             {props.isLoading && <div>spinner</div>}
             {props.error && <div>{props.error.message}</div>}
+
             <Grid container spacing={1}>
 
-                {props.friends.map(pals => (
-                    <Grid item key={pals.name} xs={6} sm={3} md={2}>
+                {props.friends.map(blue => (
+                    <Grid item key={blue.name} xs={6} sm={3} md={2}>
                         <Card  className={classes.card}>
 
                             <Typography variant="h4">
-                                {pals.name}
+                                {blue.name}
                             </Typography>
                             <Typography variant="h5">
-                                age: {pals.age}
+                                age: {blue.age}
                             </Typography>
-                            <Typography variant="h5">
-                                email: {pals.email} 
-                            </Typography>
+                           
                         </Card>
                     </Grid>
                 ))}
