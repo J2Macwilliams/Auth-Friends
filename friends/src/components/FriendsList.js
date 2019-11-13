@@ -66,7 +66,7 @@ class FriendsList extends Component {
                                     {pals.email}
                                 </Typography>
                                 <Typography>
-                                    {pals.age}
+                                    age: {pals.age}
                                 </Typography>
                             </Card>
 

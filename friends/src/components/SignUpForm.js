@@ -4,6 +4,13 @@ import React, { Component } from 'react';
 import { Paper, Grid, TextField, Button, Typography } from '@material-ui/core';
 import axios from 'axios';
 
+const axiosWithAuth = () => {
+    return axios.create({
+        headers: {
+            authorization: sessionStorage.getItem("token")
+        }
+    });
+};
 
 export class SignUpForm extends Component {
     state = {
@@ -19,8 +26,10 @@ export class SignUpForm extends Component {
     };
     onSubmit = e => {
         e.preventDefault();
-        console.log('Signup', this.state);
-        axios.post('http.//localhost:5000/api/friends', this.state)
+        // console.log('Signup', this.state);
+        const authAxios = axiosWithAuth();
+        authAxios
+            .post('http.//localhost:5000/api/friends', this.state)
     }
 
     render() {
@@ -42,17 +51,6 @@ export class SignUpForm extends Component {
                                 onChange={this.handleChanges}
                                 required
                             />
-                            {/* <TextField
-                                type="password"
-                                id="outlined-basic"
-                                label="password"
-                                name="password"
-                                margin="normal"
-                                variant="outlined"
-                                value={this.state.password}
-                                onChange={this.handleChanges}
-                                required
-                            /> */}
                             <TextField
                                 id="outlined-basic"
                                 label="name"
