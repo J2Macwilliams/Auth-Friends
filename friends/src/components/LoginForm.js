@@ -7,30 +7,52 @@ import { Paper, Grid, TextField, Button, Typography } from '@material-ui/core';
 
 export class LoginForm extends Component {
     state = {
-        username: '',
-        password: '',
-        errors: {},
-        isLoading: false
+        credentials: {
+            username: "",
+            password: ""
+        },
+        isLoggedIn: false
     };
 
-
-
-    onSubmit =e => {
-        e.preventDefault();
-    }
-    handleChanges = e => {
+    handleChange = e => {
         this.setState({
+            credentials: {
+                ...this.state.credentials,
                 [e.target.name]: e.target.value
-            
+            }
         });
     };
+
+    login = e => {
+        e.preventDefault();
+        axios
+            .post(
+                "https://localhost:5000/api/login",
+                this.state.credentials
+            )
+            .then(response => {
+                console.log("response", response);
+                const { data } = response;
+
+                sessionStorage.setItem("token", data.payload);
+                this.setState({ ...this.state, isLoggedIn: true });
+            });
+    };
+
+    componentDidMount() {
+        if (sessionStorage.getItem("token")) {
+            this.setState({ ...this.state, isLoggedIn: true });
+        } else {
+            this.setState({ ...this.state, isLoggedIn: false });
+        }
+    }
 
     render() {
         return (
             <div>
                 <Grid container >
                     <Paper style={{ width: '100%', margin: 20, boxShadow: '0 0 10px 2px' }}>
-                        <form onSubmit={this.onSubmit}>
+                        <form onSubmit={this.login}>
                             <Typography variant="h5" >
                                 {this.state.isLoggedIn ? "LOGGED IN!" : "Please login"}
                             </Typography>
@@ -41,7 +63,7 @@ export class LoginForm extends Component {
                                 margin="normal"
                                 variant="outlined"
                                 value={this.state.username}
-                                onChange={this.handleChanges}
+                                onChange={this.handleChange}
                                 required
                             />
                             <TextField
@@ -52,7 +74,7 @@ export class LoginForm extends Component {
                                 margin="normal"
                                 variant="outlined"
                                 value={this.state.password}
-                                onChange={this.handleChanges}
+                                onChange={this.handleChange}
                                 required
                             />
                             <Button type="submit" style={{ background: 'dodgerblue' }} >Submit</Button>
@@ -64,4 +86,4 @@ export class LoginForm extends Component {
     }
 }
 
-export default LoginForm ;
+export default LoginForm;
